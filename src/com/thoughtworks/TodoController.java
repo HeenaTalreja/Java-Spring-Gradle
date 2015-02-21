@@ -54,6 +54,9 @@ public class TodoController {
             existing.setCompleted(todo.isCompleted());
         }
 
+        if(todo.getOrder() != null) {
+            existing.setOrder(todo.getOrder());
+        }
 
         return existing;
 

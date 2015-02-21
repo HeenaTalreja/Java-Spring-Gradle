@@ -144,6 +144,26 @@ public class TodoControllerTest {
         assertThat(updated.isCompleted(), is(true));
     }
 
+    @Test public void shouldUpdateTheOrderOfAnExistingTodo() {
+        TodoController controller = new TodoController();
+
+        Todo todo = new Todo();
+        todo.setTitle("Get out of the way");
+
+        controller.createTodo(todo);
+
+        Todo patch = new Todo();
+        patch.setTitle(null);
+        patch.setCompleted(null);
+        patch.setUrl(null);
+        patch.setOrder(100);
+
+        controller.patchTodo(0, patch);
+
+        Todo updated = controller.getTodoById(0);
+        assertThat(updated.getOrder(), is(100));
+    }
+
     @Test
     public void shouldDeleteById(){
         TodoController controller = new TodoController();

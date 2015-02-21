@@ -5,12 +5,12 @@ public class Todo {
     private String title;
     private Boolean completed;
     private String url;
+    private Integer order;
 
     public Todo() {
         this.completed = false;
         this.url = "";
     }
-
 
     public String getTitle() {
         return title;
@@ -34,5 +34,13 @@ public class Todo {
 
     public void setCompleted(Boolean completed) {
         this.completed = completed;
+    }
+
+    public Integer getOrder() {
+        return order;
+    }
+
+    public void setOrder(Integer order) {
+        this.order = order;
     }
 }
