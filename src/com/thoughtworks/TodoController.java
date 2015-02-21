@@ -59,4 +59,8 @@ public class TodoController {
 
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+    public @ResponseBody void  deleteTodo(@PathVariable int id) {
+            todos.remove(id);
+    }
 }

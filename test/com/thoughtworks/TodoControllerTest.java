@@ -8,6 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 
 public class TodoControllerTest {
     @Test
@@ -141,5 +142,20 @@ public class TodoControllerTest {
 
         Todo updated = controller.getTodoById(0);
         assertThat(updated.isCompleted(), is(true));
+    }
+
+    @Test
+    public void shouldDeleteById(){
+        TodoController controller = new TodoController();
+
+        Todo todo = new Todo();
+        todo.setTitle("idunno get juice or something");
+
+        controller.createTodo(todo);
+
+        controller.deleteTodo(0);
+
+        assertThat(controller.getAll().size(), is(0));
+        assertNull(controller.getTodoById(0));
     }
 }
