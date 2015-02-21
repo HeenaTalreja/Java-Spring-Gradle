@@ -61,10 +61,6 @@ public class TodoControllerTest {
         List<Todo> aBunchOfTodos = controller.getAll();
 
         assertThat(aBunchOfTodos.size(), is(0));
-
-
-        //controller.createTodo(todo);
-        //assertThat(controller.getTodoById(0).getUrl(), is()
     }
 
     @Test
@@ -103,5 +99,47 @@ public class TodoControllerTest {
 
         Todo savedTodo = controller.getTodoById(0);
         assertThat(savedTodo.getTitle(), is(todo.getTitle()));
+    }
+
+
+    @Test public void shouldUpdateTheTitleOfAnExistingTodo() {
+        TodoController controller = new TodoController();
+
+        Todo todo = new Todo();
+        todo.setTitle("idunno get juice or something");
+
+        controller.createTodo(todo);
+
+
+        Todo patch = new Todo();
+        patch.setTitle("updated title");
+        patch.setCompleted(null);
+        patch.setUrl(null);
+
+        controller.patchTodo(0, patch);
+
+        Todo updated = controller.getTodoById(0);
+        assertThat(updated.getTitle(), is(patch.getTitle()));
+        assertThat(updated.isCompleted(), is(false));
+    }
+
+    @Test public void shouldUpdateTheCompletednessOfAnExistingTodo() {
+        TodoController controller = new TodoController();
+
+        Todo todo = new Todo();
+        todo.setTitle("idunno get juice or something");
+
+        controller.createTodo(todo);
+
+
+        Todo patch = new Todo();
+        patch.setTitle(null);
+        patch.setCompleted(true);
+        patch.setUrl(null);
+
+        controller.patchTodo(0, patch);
+
+        Todo updated = controller.getTodoById(0);
+        assertThat(updated.isCompleted(), is(true));
     }
 }

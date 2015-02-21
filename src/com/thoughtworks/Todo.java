@@ -3,7 +3,7 @@ package com.thoughtworks;
 public class Todo {
 
     private String title;
-    private boolean completed;
+    private Boolean completed;
     private String url;
 
     public Todo() {
@@ -20,7 +20,7 @@ public class Todo {
         this.title = title;
     }
 
-    public boolean isCompleted() {
+    public Boolean isCompleted() {
         return completed;
     }
 
@@ -30,5 +30,9 @@ public class Todo {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
     }
 }

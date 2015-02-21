@@ -42,4 +42,21 @@ public class TodoController {
         return todos.get(id);
     }
 
+    @RequestMapping(method = RequestMethod.PATCH, value="/{id}")
+    public @ResponseBody Todo patchTodo(@PathVariable int id, @RequestBody Todo todo) {
+        Todo existing = todos.get(id);
+
+        if (todo.getTitle() != null) {
+            existing.setTitle(todo.getTitle());
+        }
+
+        if(todo.isCompleted() != null) {
+            existing.setCompleted(todo.isCompleted());
+        }
+
+
+        return existing;
+
+    }
+
 }
