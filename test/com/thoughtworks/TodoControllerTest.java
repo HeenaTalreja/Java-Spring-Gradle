@@ -11,10 +11,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 
 public class TodoControllerTest {
-    @Test
-    public void itShouldRespondToGet(){
-
-    }
 
     @Test
     public void shouldEchoBackATodo(){
@@ -131,7 +127,6 @@ public class TodoControllerTest {
         todo.setTitle("idunno get juice or something");
 
         controller.createTodo(todo);
-
 
         Todo patch = new Todo();
         patch.setTitle(null);
