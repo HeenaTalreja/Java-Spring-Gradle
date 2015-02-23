@@ -40,21 +40,7 @@ public class TodoController {
 
     @RequestMapping(method = RequestMethod.PATCH, value = "/{id}")
     public @ResponseBody Todo update(@PathVariable int id, @RequestBody Todo todo) {
-        Todo existingTodo = todos.get(id);
-
-        if (todo.getTitle() != null) {
-            existingTodo.setTitle(todo.getTitle());
-        }
-
-        if (todo.isCompleted() != null) {
-            existingTodo.setCompleted(todo.isCompleted());
-        }
-
-        if (todo.getOrder() != null) {
-            existingTodo.setOrder(todo.getOrder());
-        }
-
-        return existingTodo;
+        return todos.get(id).patchWith(todo);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/")

@@ -3,7 +3,6 @@ package com.thoughtworks;
 import java.net.URI;
 
 public class Todo {
-
     private String title;
     private Boolean completed;
     private URI url;
@@ -43,5 +42,21 @@ public class Todo {
 
     public void setOrder(Integer order) {
         this.order = order;
+    }
+
+    public Todo patchWith(Todo todo) {
+        if (todo.getTitle() != null) {
+            this.title = todo.getTitle();
+        }
+
+        if (todo.isCompleted() != null) {
+            this.completed = todo.isCompleted();
+        }
+
+        if (todo.getOrder() != null) {
+            this.order = todo.getOrder();
+        }
+
+        return this;
     }
 }
