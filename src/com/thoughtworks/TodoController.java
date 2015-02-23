@@ -22,17 +22,14 @@ public class TodoController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/")
-    public
-    @ResponseBody
-    List<Todo> getAll() {
+    public @ResponseBody List<Todo> getAll() {
         return new ArrayList<Todo>(todos.values());
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/")
-    public
-    @ResponseBody
-    Todo createTodo(@RequestBody final Todo todo, HttpServletRequest request) {
+    public @ResponseBody Todo createTodo(@RequestBody final Todo todo, HttpServletRequest request) {
         int id = idGenerator++;
+
         String contextPath = String.valueOf(request.getRequestURL() + "/");
         todo.setUrl(URI.create(contextPath + id));
 
@@ -41,44 +38,36 @@ public class TodoController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/")
-    public
-    @ResponseBody
-    void delete() {
+    public @ResponseBody void delete() {
         todos.clear();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
-    public
-    @ResponseBody
-    Todo getTodoById(@PathVariable int id) {
+    public @ResponseBody Todo getTodoById(@PathVariable int id) {
         return todos.get(id);
     }
 
     @RequestMapping(method = RequestMethod.PATCH, value = "/{id}")
-    public
-    @ResponseBody
-    Todo patchTodo(@PathVariable int id, @RequestBody Todo todo) {
-        Todo existing = todos.get(id);
+    public @ResponseBody Todo patchTodo(@PathVariable int id, @RequestBody Todo todo) {
+        Todo existingTodo = todos.get(id);
 
         if (todo.getTitle() != null) {
-            existing.setTitle(todo.getTitle());
+            existingTodo.setTitle(todo.getTitle());
         }
 
         if (todo.isCompleted() != null) {
-            existing.setCompleted(todo.isCompleted());
+            existingTodo.setCompleted(todo.isCompleted());
         }
 
         if (todo.getOrder() != null) {
-            existing.setOrder(todo.getOrder());
+            existingTodo.setOrder(todo.getOrder());
         }
 
-        return existing;
+        return existingTodo;
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
-    public
-    @ResponseBody
-    void deleteTodo(@PathVariable int id) {
+    public @ResponseBody void deleteTodo(@PathVariable int id) {
         todos.remove(id);
     }
 }
