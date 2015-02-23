@@ -11,7 +11,6 @@ public class Todo {
 
     public Todo() {
         this.completed = false;
-        this.url = URI.create("");
     }
 
     public String getTitle() {
@@ -26,16 +25,16 @@ public class Todo {
         return completed;
     }
 
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
+    }
+
     public URI getUrl() {
         return url;
     }
 
     public void setUrl(URI url) {
         this.url = url;
-    }
-
-    public void setCompleted(Boolean completed) {
-        this.completed = completed;
     }
 
     public Integer getOrder() {

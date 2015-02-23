@@ -14,60 +14,68 @@ import java.util.Map;
 public class TodoController {
     Map<Integer, Todo> todos;
 
-    int idGenerator;
+    int currentId;
 
     public TodoController() {
         todos = new HashMap<Integer, Todo>();
-        idGenerator = 0;
+        currentId = 0;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/")
-    public @ResponseBody List<Todo> getAll() {
+    public
+    @ResponseBody
+    List<Todo> getAll() {
         return new ArrayList<Todo>(todos.values());
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/")
-    public @ResponseBody Todo createTodo(@RequestBody final Todo todo, HttpServletRequest request) {
-        int id = idGenerator++;
-
-        String contextPath = String.valueOf(request.getRequestURL() + "/");
-        todo.setUrl(URI.create(contextPath + id));
-
-        todos.put(id, todo);
-        return todo;
-    }
-
-    @RequestMapping(method = RequestMethod.DELETE, value = "/")
-    public @ResponseBody void delete() {
-        todos.clear();
-    }
-
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
-    public @ResponseBody Todo getTodoById(@PathVariable int id) {
+    public
+    @ResponseBody
+    Todo getTodoById(@PathVariable int id) {
         return todos.get(id);
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/")
+    public
+    @ResponseBody
+    Todo createTodo(@RequestBody final Todo todo, HttpServletRequest request) {
+        todo.setUrl(URI.create(request.getRequestURL() + "/" + currentId));
+        todos.put(currentId++, todo);
+        return todo;
+    }
+
     @RequestMapping(method = RequestMethod.PATCH, value = "/{id}")
-    public @ResponseBody Todo patchTodo(@PathVariable int id, @RequestBody Todo todo) {
-        Todo existingTodo = todos.get(id);
+    public
+    @ResponseBody
+    Todo update(@PathVariable int id, @RequestBody Todo todo) {
+        Todo existing = todos.get(id);
 
         if (todo.getTitle() != null) {
-            existingTodo.setTitle(todo.getTitle());
+            existing.setTitle(todo.getTitle());
         }
 
         if (todo.isCompleted() != null) {
-            existingTodo.setCompleted(todo.isCompleted());
+            existing.setCompleted(todo.isCompleted());
         }
 
         if (todo.getOrder() != null) {
-            existingTodo.setOrder(todo.getOrder());
+            existing.setOrder(todo.getOrder());
         }
 
-        return existingTodo;
+        return existing;
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/")
+    public
+    @ResponseBody
+    void deleteAll() {
+        todos.clear();
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
-    public @ResponseBody void deleteTodo(@PathVariable int id) {
+    public
+    @ResponseBody
+    void deleteTodo(@PathVariable int id) {
         todos.remove(id);
     }
 }

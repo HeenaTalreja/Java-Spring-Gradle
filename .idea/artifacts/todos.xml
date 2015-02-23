@@ -10,7 +10,6 @@
           <element id="library" level="project" name="Java EE 6-Java EE 6" />
         </element>
         <element id="directory" name="classes">
-          <element id="module-output" name="ToDoBackend-Spring" />
           <element id="module-output" name="TodoBackend-Spring" />
         </element>
       </element>
