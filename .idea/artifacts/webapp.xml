@@ -12,11 +12,13 @@
         </element>
         <element id="directory" name="classes">
           <element id="module-output" name="ToDoBackend-Spring" />
+          <element id="module-output" name="TodoBackend-Spring" />
         </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/web/META-INF/MANIFEST.MF" />
       </element>
+      <element id="javaee-facet-resources" facet="TodoBackend-Spring/web/Web" />
     </root>
   </artifact>
 </component>
