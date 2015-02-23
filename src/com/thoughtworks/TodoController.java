@@ -9,7 +9,7 @@ import java.util.*;
 public class TodoController {
     Map<Integer, Todo> todos;
 
-    String servicePath = "http://localhost:8080/webapp/";
+    String servicePath = "http://localhost:8080/todos/";
 
     int idGenerator;
 
@@ -19,12 +19,16 @@ public class TodoController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/")
-    public @ResponseBody List<Todo> getAll() {
+    public
+    @ResponseBody
+    List<Todo> getAll() {
         return new ArrayList<Todo>(todos.values());
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/")
-    public @ResponseBody Todo createTodo(@RequestBody final Todo todo) {
+    public
+    @ResponseBody
+    Todo createTodo(@RequestBody final Todo todo) {
         int id = idGenerator++;
         todo.setUrl(servicePath + id);
 
@@ -33,37 +37,44 @@ public class TodoController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/")
-    public @ResponseBody void delete() {
+    public
+    @ResponseBody
+    void delete() {
         todos.clear();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value= "/{id}")
-    public @ResponseBody Todo getTodoById(@PathVariable int id) {
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+    public
+    @ResponseBody
+    Todo getTodoById(@PathVariable int id) {
         return todos.get(id);
     }
 
-    @RequestMapping(method = RequestMethod.PATCH, value="/{id}")
-    public @ResponseBody Todo patchTodo(@PathVariable int id, @RequestBody Todo todo) {
+    @RequestMapping(method = RequestMethod.PATCH, value = "/{id}")
+    public
+    @ResponseBody
+    Todo patchTodo(@PathVariable int id, @RequestBody Todo todo) {
         Todo existing = todos.get(id);
 
         if (todo.getTitle() != null) {
             existing.setTitle(todo.getTitle());
         }
 
-        if(todo.isCompleted() != null) {
+        if (todo.isCompleted() != null) {
             existing.setCompleted(todo.isCompleted());
         }
 
-        if(todo.getOrder() != null) {
+        if (todo.getOrder() != null) {
             existing.setOrder(todo.getOrder());
         }
 
         return existing;
-
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
-    public @ResponseBody void  deleteTodo(@PathVariable int id) {
-            todos.remove(id);
+    public
+    @ResponseBody
+    void deleteTodo(@PathVariable int id) {
+        todos.remove(id);
     }
 }

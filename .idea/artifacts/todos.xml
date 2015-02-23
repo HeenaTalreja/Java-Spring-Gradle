@@ -12,11 +12,19 @@
         </element>
         <element id="directory" name="classes">
           <element id="module-output" name="ToDoBackend-Spring" />
+<<<<<<< HEAD
+=======
+          <element id="module-output" name="TodoBackend-Spring" />
+>>>>>>> switched to mvc:annotation-driven
         </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/web/META-INF/MANIFEST.MF" />
       </element>
+<<<<<<< HEAD
+=======
+      <element id="javaee-facet-resources" facet="TodoBackend-Spring/web/Web" />
+>>>>>>> switched to mvc:annotation-driven
     </root>
   </artifact>
 </component>
