@@ -11,7 +11,7 @@ public class Todo {
 
     public Todo() {
         this.completed = false;
-	this.url = URI.create("");
+        this.url = URI.create("");
     }
 
     public String getTitle() {

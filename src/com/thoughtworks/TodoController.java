@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,10 +29,12 @@ public class TodoController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/")
-    public @ResponseBody Todo createTodo(@RequestBody final Todo todo, HttpServletRequest request, HttpServletResponse response) {
+    public
+    @ResponseBody
+    Todo createTodo(@RequestBody final Todo todo, HttpServletRequest request) {
         int id = idGenerator++;
-	String contextPath = String.valueOf(request.getRequestURL() + "/");
-	todo.setUrl(URI.create(contextPath + id));
+        String contextPath = String.valueOf(request.getRequestURL() + "/");
+        todo.setUrl(URI.create(contextPath + id));
 
         todos.put(id, todo);
         return todo;

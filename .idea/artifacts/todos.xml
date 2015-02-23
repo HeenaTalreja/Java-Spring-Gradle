@@ -2,7 +2,6 @@
   <artifact type="war" name="todos">
     <output-path>$PROJECT_DIR$/out/artifacts/todos</output-path>
     <root id="archive" name="todos.war">
-      <element id="javaee-facet-resources" facet="ToDoBackend-Spring/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="lib">
           <element id="library" level="project" name="Spring-4.1.4.RELEASE" />
