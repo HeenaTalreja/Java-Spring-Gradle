@@ -8,6 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0dae1951-9232-4648-9e05-995552a00629" name="Default" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/todos.xml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/thoughtworks/WebConfiguration.java" afterPath="" />
@@ -17,6 +18,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spring-config.xml" afterPath="$PROJECT_DIR$/src/spring-config.xml" />
 >>>>>>> switched to mvc:annotation-driven
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/thoughtworks/Todo.java" afterPath="$PROJECT_DIR$/src/com/thoughtworks/Todo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/thoughtworks/TodoController.java" afterPath="$PROJECT_DIR$/src/com/thoughtworks/TodoController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/thoughtworks/TodoControllerTest.java" afterPath="$PROJECT_DIR$/test/com/thoughtworks/TodoControllerTest.java" />
+>>>>>>> Get request url from servlet when creating a new Todo
     </list>
     <ignored path="ToDoBackend-Spring.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,9 +92,10 @@
       <file leaf-file-name="TodoController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/thoughtworks/TodoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="546" max-vertical-offset="990">
-              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+	    <state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="975">
+	      <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
               <folding>
+<<<<<<< HEAD
                 <element signature="e#1804#1805#0" expanded="true" />
 =======
       <file leaf-file-name="TodoController.java" pinned="false" current-in-tab="true">
@@ -106,6 +113,10 @@
                 <element signature="e#1854#1855#0" expanded="true" />
                 <element signature="e#1886#1887#0" expanded="true" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+		<element signature="e#2084#2085#0" expanded="true" />
+		<element signature="e#2120#2121#0" expanded="true" />
+>>>>>>> Get request url from servlet when creating a new Todo
               </folding>
             </state>
           </provider>
@@ -140,10 +151,14 @@
         </entry>
       </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <file leaf-file-name="SimpleCorsFilter.java" pinned="false" current-in-tab="true">
+=======
+      <file leaf-file-name="SimpleCorsFilter.java" pinned="false" current-in-tab="false">
+>>>>>>> Get request url from servlet when creating a new Todo
         <entry file="file://$PROJECT_DIR$/src/com/thoughtworks/SimpleCorsFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33783785" vertical-offset="0" max-vertical-offset="444">
+	    <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
               <caret line="14" column="93" selection-start-line="14" selection-start-column="93" selection-end-line="14" selection-end-column="93" />
 =======
       <file leaf-file-name="Todo.java" pinned="false" current-in-tab="false">
@@ -157,9 +172,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TodoControllerTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TodoControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/thoughtworks/TodoControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="1845" max-vertical-offset="2610">
               <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
@@ -167,6 +183,20 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="2196" max-vertical-offset="3132">
               <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+	    <state vertical-scroll-proportion="-0.3716216" vertical-offset="825" max-vertical-offset="2610">
+	      <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+	      <folding />
+	    </state>
+	  </provider>
+	</entry>
+      </file>
+      <file leaf-file-name="Todo.java" pinned="false" current-in-tab="false">
+	<entry file="file://$PROJECT_DIR$/src/com/thoughtworks/Todo.java">
+	  <provider selected="true" editor-type-id="text-editor">
+	    <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+	      <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+>>>>>>> Get request url from servlet when creating a new Todo
               <folding />
             </state>
           </provider>
@@ -197,12 +227,18 @@
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/com/thoughtworks/SimpleCorsFilter.java" />
+<<<<<<< HEAD
 =======
         <option value="$PROJECT_DIR$/src/spring-config.xml" />
         <option value="$PROJECT_DIR$/src/com/thoughtworks/WebConfiguration.java" />
         <option value="$PROJECT_DIR$/src/com/thoughtworks/SimpleCorsFilter.java" />
         <option value="$PROJECT_DIR$/src/com/thoughtworks/TodoController.java" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+	<option value="$PROJECT_DIR$/src/com/thoughtworks/Todo.java" />
+	<option value="$PROJECT_DIR$/src/com/thoughtworks/TodoController.java" />
+	<option value="$PROJECT_DIR$/test/com/thoughtworks/TodoControllerTest.java" />
+>>>>>>> Get request url from servlet when creating a new Todo
       </list>
     </option>
   </component>
@@ -319,13 +355,17 @@
 <<<<<<< HEAD
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
+<<<<<<< HEAD
 =======
     <property name="FullScreen" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="restartRequiresConfirmation" value="true" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+    <property name="dynamic.classpath" value="false" />
+>>>>>>> Get request url from servlet when creating a new Todo
   </component>
-  <component name="RunManager" selected="JBoss Server.ToDo">
+  <component name="RunManager" selected="JUnit.TodoControllerTest">
     <configuration default="false" name="TodoControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="ToDoBackend-Spring" />
@@ -855,11 +895,15 @@
   <component name="ToolWindowManager">
 <<<<<<< HEAD
     <frame x="0" y="23" width="1440" height="830" extended-state="0" />
+<<<<<<< HEAD
     <editor active="false" />
 =======
     <frame x="0" y="22" width="1680" height="1024" extended-state="6" />
     <editor active="true" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+    <editor active="true" />
+>>>>>>> Get request url from servlet when creating a new Todo
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -877,12 +921,18 @@
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+=======
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32791328" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+>>>>>>> Get request url from servlet when creating a new Todo
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2553648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3604336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
 =======
@@ -901,6 +951,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2553648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3604336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> Get request url from servlet when creating a new Todo
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -939,7 +993,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="546" max-vertical-offset="990">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
-            <element signature="e#1804#1805#0" expanded="true" />
+	    <element signature="e#2084#2085#0" expanded="true" />
+	    <element signature="e#2120#2121#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -973,6 +1028,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="960">
           <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#1804#1805#0" expanded="true" />
 =======
         <state vertical-scroll-proportion="0.0" vertical-offset="382" max-vertical-offset="1260">
@@ -987,6 +1043,10 @@
             <element signature="e#1854#1855#0" expanded="true" />
             <element signature="e#1886#1887#0" expanded="true" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+	    <element signature="e#2084#2085#0" expanded="true" />
+	    <element signature="e#2120#2121#0" expanded="true" />
+>>>>>>> Get request url from servlet when creating a new Todo
           </folding>
         </state>
       </provider>
@@ -996,11 +1056,15 @@
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
 =======
         <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="252">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
 >>>>>>> switched to mvc:annotation-driven
+=======
+	  <folding />
+>>>>>>> Get request url from servlet when creating a new Todo
         </state>
       </provider>
     </entry>
@@ -1035,6 +1099,7 @@
           <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
           <folding>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <element signature="e#1804#1805#0" expanded="true" />
 =======
             <element signature="e#524#525#0" expanded="true" />
@@ -1046,6 +1111,10 @@
             <element signature="e#1854#1855#0" expanded="true" />
             <element signature="e#1886#1887#0" expanded="true" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+	    <element signature="e#2084#2085#0" expanded="true" />
+	    <element signature="e#2120#2121#0" expanded="true" />
+>>>>>>> Get request url from servlet when creating a new Todo
           </folding>
         </state>
       </provider>
@@ -1064,6 +1133,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <element signature="e#1804#1805#0" expanded="true" />
 =======
             <element signature="e#524#525#0" expanded="true" />
@@ -1075,6 +1145,10 @@
             <element signature="e#1854#1855#0" expanded="true" />
             <element signature="e#1886#1887#0" expanded="true" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+	    <element signature="e#2084#2085#0" expanded="true" />
+	    <element signature="e#2120#2121#0" expanded="true" />
+>>>>>>> Get request url from servlet when creating a new Todo
           </folding>
         </state>
       </provider>
@@ -1098,6 +1172,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+	  <folding />
         </state>
       </provider>
     </entry>
@@ -1129,6 +1204,7 @@
           <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
           <folding>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <element signature="e#1804#1805#0" expanded="true" />
 =======
             <element signature="e#524#525#0" expanded="true" />
@@ -1140,6 +1216,10 @@
             <element signature="e#1854#1855#0" expanded="true" />
             <element signature="e#1886#1887#0" expanded="true" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+	    <element signature="e#2084#2085#0" expanded="true" />
+	    <element signature="e#2120#2121#0" expanded="true" />
+>>>>>>> Get request url from servlet when creating a new Todo
           </folding>
         </state>
       </provider>
@@ -1156,6 +1236,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+	  <folding />
         </state>
       </provider>
     </entry>
@@ -1209,16 +1290,25 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/test/com/thoughtworks/TodoControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
           <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+=======
+    <entry file="file://$PROJECT_DIR$/.idea/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+	<state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="668">
+	  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+	  <folding />
+>>>>>>> Get request url from servlet when creating a new Todo
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/thoughtworks/TodoControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="1845" max-vertical-offset="2610">
           <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
 =======
@@ -1233,10 +1323,15 @@
         <state vertical-scroll-proportion="0.16400911" vertical-offset="0" max-vertical-offset="878">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+	<state vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="525">
+	  <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+>>>>>>> Get request url from servlet when creating a new Todo
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.idea/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1249,11 +1344,19 @@
           <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
           <folding />
 >>>>>>> switched to mvc:annotation-driven
+=======
+    <entry file="jar://$PROJECT_DIR$/lib/javax.servlet.jar!/javax/servlet/http/HttpServletRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+	<state vertical-scroll-proportion="0.21479714" vertical-offset="0" max-vertical-offset="1185">
+	  <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+	  <folding />
+>>>>>>> Get request url from servlet when creating a new Todo
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/thoughtworks/Todo.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="1020">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
@@ -1277,12 +1380,25 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
           <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
 >>>>>>> switched to mvc:annotation-driven
-          <folding />
+=======
+	<state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+	  <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+	  <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/thoughtworks/SimpleCorsFilter.java">
       <provider selected="true" editor-type-id="text-editor">
+	<state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+	  <caret line="14" column="93" selection-start-line="14" selection-start-column="93" selection-end-line="14" selection-end-column="93" />
+>>>>>>> Get request url from servlet when creating a new Todo
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/thoughtworks/TodoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.33783785" vertical-offset="0" max-vertical-offset="444">
           <caret line="14" column="93" selection-start-line="14" selection-start-column="93" selection-end-line="14" selection-end-column="93" />
@@ -1290,6 +1406,21 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
           <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
 >>>>>>> switched to mvc:annotation-driven
+=======
+	<state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="975">
+	  <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+	  <folding>
+	    <element signature="e#2084#2085#0" expanded="true" />
+	    <element signature="e#2120#2121#0" expanded="true" />
+	  </folding>
+	</state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/thoughtworks/TodoControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+	<state vertical-scroll-proportion="-0.3716216" vertical-offset="825" max-vertical-offset="2610">
+	  <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+>>>>>>> Get request url from servlet when creating a new Todo
           <folding />
         </state>
       </provider>

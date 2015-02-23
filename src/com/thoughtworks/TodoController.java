@@ -3,13 +3,17 @@ package com.thoughtworks;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class TodoController {
     Map<Integer, Todo> todos;
-
-    String servicePath = "http://localhost:8080/todos/";
 
     int idGenerator;
 
@@ -26,11 +30,10 @@ public class TodoController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/")
-    public
-    @ResponseBody
-    Todo createTodo(@RequestBody final Todo todo) {
+    public @ResponseBody Todo createTodo(@RequestBody final Todo todo, HttpServletRequest request, HttpServletResponse response) {
         int id = idGenerator++;
-        todo.setUrl(servicePath + id);
+	String contextPath = String.valueOf(request.getRequestURL() + "/");
+	todo.setUrl(URI.create(contextPath + id));
 
         todos.put(id, todo);
         return todo;

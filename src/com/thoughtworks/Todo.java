@@ -1,15 +1,17 @@
 package com.thoughtworks;
 
+import java.net.URI;
+
 public class Todo {
 
     private String title;
     private Boolean completed;
-    private String url;
+    private URI url;
     private Integer order;
 
     public Todo() {
         this.completed = false;
-        this.url = "";
+	this.url = URI.create("");
     }
 
     public String getTitle() {
@@ -24,11 +26,11 @@ public class Todo {
         return completed;
     }
 
-    public String getUrl() {
+    public URI getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
+    public void setUrl(URI url) {
         this.url = url;
     }
 
