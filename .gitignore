@@ -1,3 +1,9 @@
 out/
 *.iml
 .idea/workspace.xml
+ToDoBackend-Spring.iml
+build/
+.gradle/
+.DS_Store
+ToDoBackend-Spring.ipr
+ToDoBackend-Spring.iws

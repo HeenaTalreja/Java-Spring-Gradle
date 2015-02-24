@@ -1,0 +1,66 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+defaultTasks 'clean', 'war', 'cleanTest', 'test'
+
+war.archiveName = 'todos.war'
+mainClassName = 'com.thoughtworks.TodoController'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/'
+        }
+    }
+
+    test {
+        java {
+            srcDir 'test/'
+        }
+    }
+}
+
+dependencies {
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.springframework:spring-test:4.1.5.RELEASE'
+    testCompile 'org.springframework:spring-core:4.1.4.RELEASE'
+
+    compile 'org.springframework:spring-core:4.1.4.RELEASE'
+    compile 'org.springframework:spring-web:4.1.4.RELEASE'
+    compile 'org.springframework:spring-webmvc:4.1.4.RELEASE'
+	compile 'org.springframework.data:spring-data-jpa:1.3.3.RELEASE'
+	compile 'org.springframework.ws:spring-ws:2.0.2.RELEASE'
+
+    compile 'com.fasterxml.jackson.core:jackson-core:2.5.1'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
+
+    compile 'org.jboss.spec:jboss-javaee-6.0:3.0.3.Final'
+
+}
+idea {
+    module {
+    	sourceDirs += file('src/')
+	    testSourceDirs += file('test/')
+    }
+}
+
+test {
+    testLogging {
+        events 'started', 'passed', 'skipped', 'failed'
+    }
+    afterTest { desc, result ->
+        println "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}

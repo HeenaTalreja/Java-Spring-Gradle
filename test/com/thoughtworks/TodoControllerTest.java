@@ -1,5 +1,6 @@
 package com.thoughtworks;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 
@@ -14,76 +15,73 @@ import static org.junit.Assert.assertNull;
 
 public class TodoControllerTest {
 
+    private String someTodoTitle;
+    private Todo someTodo;
+    private Todo patch;
+    private TodoController controller;
+
+    @Before
+    public void setUp() throws Exception {
+        patch = new Todo();
+        someTodoTitle = "a todo";
+        someTodo = new Todo();
+        someTodo.setTitle(someTodoTitle);
+        controller = new TodoController();
+    }
+
     @Test
     public void shouldEchoBackATodo() {
         TodoController controller = new TodoController();
-        Todo todo = new Todo();
-        todo.setTitle("a todo");
 
-        Todo responseTodo = controller.createTodo(todo, new MockHttpServletRequest());
-        assertThat(responseTodo.getTitle(), equalTo("a todo"));
+        Todo responseTodo = controller.createTodo(someTodo, new MockHttpServletRequest());
+        assertThat(responseTodo.getTitle(), equalTo(someTodoTitle));
     }
 
     @Test
     public void shouldRespondOkWhenDeletingATodo() {
         TodoController controller = new TodoController();
-        Todo todo = new Todo();
-        todo.setTitle("a todo");
-
-        Todo responseTodo = controller.createTodo(todo, new MockHttpServletRequest());
-        assertThat(responseTodo.getTitle(), equalTo("a todo"));
+        Todo responseTodo = controller.createTodo(someTodo, new MockHttpServletRequest());
+        assertThat(responseTodo.getTitle(), equalTo(someTodoTitle));
     }
 
     @Test
     public void shouldHaveTodoPresentInCollectionAfterCreation() {
-        TodoController controller = new TodoController();
-        Todo todo = new Todo();
-        todo.setTitle("lol i exist forever");
+        someTodo.setTitle("lol i exist forever");
 
-        controller.createTodo(todo, new MockHttpServletRequest());
+        controller.createTodo(someTodo, new MockHttpServletRequest());
 
         List<Todo> aBunchOfTodos = controller.getAll();
 
         assertThat(aBunchOfTodos.size(), is(1));
-        assertThat(aBunchOfTodos.get(0).getTitle(), is(todo.getTitle()));
+        assertThat(aBunchOfTodos.get(0).getTitle(), is(someTodo.getTitle()));
     }
 
     @Test
     public void shouldDeleteAllTodosIfNoIdIsSpecified() {
-        TodoController controller = new TodoController();
+        someTodo.setTitle("Delete all the things");
 
-        Todo todo = new Todo();
-        todo.setTitle("Delete all the things");
-
-        controller.createTodo(todo, new MockHttpServletRequest());
+        controller.createTodo(someTodo, new MockHttpServletRequest());
         controller.deleteAll();
 
         List<Todo> aBunchOfTodos = controller.getAll();
-
         assertThat(aBunchOfTodos.size(), is(0));
     }
 
     @Test
     public void shouldHavePropertyCompletedAsFalse() {
+        someTodo.setTitle("A new todo I'm never going to do");
 
-        TodoController controller = new TodoController();
-        Todo todo = new Todo();
-        todo.setTitle("A new todo I'm never going to do");
-
-        controller.createTodo(todo, new MockHttpServletRequest());
+        controller.createTodo(someTodo, new MockHttpServletRequest());
 
         assertFalse(controller.getTodoById(0).isCompleted());
     }
 
     @Test
     public void shouldHaveUrl() {
-        TodoController controller = new TodoController();
-
-        Todo todo = new Todo();
-        todo.setTitle("A new todo I'm never going to do");
+        someTodo.setTitle("A new todo I'm never going to do");
 
         MockHttpServletRequest mockRequest = new MockHttpServletRequest();
-        controller.createTodo(todo, mockRequest);
+        controller.createTodo(someTodo, mockRequest);
 
         URI url = controller.getTodoById(0).getUrl();
         assertThat(url.toString(), is(mockRequest.getRequestURL() + "/0"));
@@ -91,34 +89,24 @@ public class TodoControllerTest {
 
     @Test
     public void shouldReturnTheTodoIdentifiedByItsId() {
-        TodoController controller = new TodoController();
-
-        Todo todo = new Todo();
-        todo.setTitle("A new todo I'm definitely going to do");
-
-        controller.createTodo(todo, new MockHttpServletRequest());
+        someTodo.setTitle("A new todo I'm definitely going to do");
+        controller.createTodo(someTodo, new MockHttpServletRequest());
 
         Todo savedTodo = controller.getTodoById(0);
-        assertThat(savedTodo.getTitle(), is(todo.getTitle()));
+        assertThat(savedTodo.getTitle(), is(someTodo.getTitle()));
     }
 
 
     @Test
     public void shouldUpdateTheTitleOfAnExistingTodo() {
-        TodoController controller = new TodoController();
+        someTodo.setTitle("Buy Dan Brunch");
+        controller.createTodo(someTodo, new MockHttpServletRequest());
 
-        Todo todo = new Todo();
-        todo.setTitle("Buy Dan Brunch");
-
-        controller.createTodo(todo, new MockHttpServletRequest());
-
-
-        Todo patch = new Todo();
         patch.setTitle("Buy Dan Lunch");
         patch.setCompleted(null);
         patch.setUrl(null);
 
-        controller.update(0, patch);
+        someTodo.patchWith(patch);;
 
         Todo updated = controller.getTodoById(0);
         assertThat(updated.getTitle(), is(patch.getTitle()));
@@ -127,19 +115,15 @@ public class TodoControllerTest {
 
     @Test
     public void shouldUpdateTheCompletednessOfAnExistingTodo() {
-        TodoController controller = new TodoController();
+        someTodo.setTitle("Get Coffee");
+        controller.createTodo(someTodo, new MockHttpServletRequest());
 
-        Todo todo = new Todo();
-        todo.setTitle("Get Coffee");
-
-        controller.createTodo(todo, new MockHttpServletRequest());
-
-        Todo patch = new Todo();
         patch.setTitle(null);
         patch.setCompleted(true);
         patch.setUrl(null);
 
-        controller.update(0, patch);
+        someTodo.patchWith(patch);
+        ;
 
         Todo updated = controller.getTodoById(0);
         assertThat(updated.isCompleted(), is(true));
@@ -147,19 +131,15 @@ public class TodoControllerTest {
 
     @Test
     public void shouldUpdateTheOrderOfAnExistingTodo() {
-        TodoController controller = new TodoController();
+        someTodo.setTitle("Do Laundry");
+        controller.createTodo(someTodo, new MockHttpServletRequest());
 
-        Todo todo = new Todo();
-        todo.setTitle("Do Laundry");
-        controller.createTodo(todo, new MockHttpServletRequest());
-
-        Todo patch = new Todo();
         patch.setTitle(null);
         patch.setCompleted(null);
         patch.setUrl(null);
         patch.setOrder(100);
 
-        controller.update(0, patch);
+        someTodo.patchWith(patch);
 
         Todo updated = controller.getTodoById(0);
         assertThat(updated.getOrder(), is(100));
@@ -167,12 +147,8 @@ public class TodoControllerTest {
 
     @Test
     public void shouldDeleteById() {
-        TodoController controller = new TodoController();
-
-        Todo todo = new Todo();
-        todo.setTitle("Start Vagrant");
-
-        controller.createTodo(todo, new MockHttpServletRequest());
+        someTodo.setTitle("Start Vagrant");
+        controller.createTodo(someTodo, new MockHttpServletRequest());
 
         controller.deleteTodo(0);
 
