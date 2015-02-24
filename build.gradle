@@ -1,16 +1,24 @@
 apply plugin: 'java'
-apply plugin: 'application'
 apply plugin: 'idea'
 apply plugin: 'war'
 
-repositories {
-	mavenLocal()
-	mavenCentral()
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-cargo-plugin:2.0.3"
+    }
 }
-defaultTasks 'clean', 'war', 'cleanTest', 'test'
+
+apply plugin: "com.bmuschko.cargo"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
 
 war.archiveName = 'todos.war'
-mainClassName = 'com.thoughtworks.TodoController'
 
 sourceSets {
     main {
@@ -35,8 +43,8 @@ dependencies {
     compile 'org.springframework:spring-core:4.1.4.RELEASE'
     compile 'org.springframework:spring-web:4.1.4.RELEASE'
     compile 'org.springframework:spring-webmvc:4.1.4.RELEASE'
-	compile 'org.springframework.data:spring-data-jpa:1.3.3.RELEASE'
-	compile 'org.springframework.ws:spring-ws:2.0.2.RELEASE'
+    compile 'org.springframework.data:spring-data-jpa:1.3.3.RELEASE'
+    compile 'org.springframework.ws:spring-ws:2.0.2.RELEASE'
 
     compile 'com.fasterxml.jackson.core:jackson-core:2.5.1'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
@@ -47,8 +55,8 @@ dependencies {
 }
 idea {
     module {
-    	sourceDirs += file('src/')
-	    testSourceDirs += file('test/')
+        sourceDirs += file('src/')
+        testSourceDirs += file('test/')
     }
 }
 
@@ -58,6 +66,19 @@ test {
     }
     afterTest { desc, result ->
         println "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+    }
+}
+
+cargo {
+    containerId = 'jboss72x'
+    port = 8080
+
+    deployable {
+        file = file('./build/libs/todos.war')
+        context = 'todos'
+    }
+    remote {
+        hostname = '127.0.0.1'
     }
 }
 
