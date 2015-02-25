@@ -51,6 +51,10 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
 
     compile 'org.jboss.spec:jboss-javaee-6.0:3.0.3.Final'
+    def cargoVersion = '1.4.5'
+    cargo "org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
+            "org.codehaus.cargo:cargo-ant:$cargoVersion",
+            'org.jboss.as:jboss-as-controller-client:7.1.0.Final'
 
 }
 idea {
@@ -70,18 +74,39 @@ test {
 }
 
 cargo {
-    containerId = 'jboss72x'
+    containerId = 'jboss71x'
     port = 8080
 
     deployable {
-        file = file('./build/libs/todos.war')
+        file = file('build/libs/todos.war')
         context = 'todos'
     }
+
     remote {
-        hostname = '127.0.0.1'
+        hostname = 'localhost'
+        username = 'admin'
+        password = 'password'
+    }
+
+    local {
+        homeDir = file("$System.env.JBOSS_HOME")
+        containerProperties { property 'cargo.jboss.configuration', 'standalone-full' }
     }
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
+
+task deployLocal(type: Copy) {
+    from "build/libs/todos.war"
+    into "$System.env.JBOSS_HOME/standalone/deployments"
+}
+
+[
+        cargoRunLocal,
+        cargoStartLocal,
+        cargoDeployRemote,
+        cargoRedeployRemote,
+        deployLocal
+].each { it.dependsOn assemble }
