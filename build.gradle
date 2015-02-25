@@ -18,7 +18,12 @@ repositories {
     mavenCentral()
 }
 
+webAppDirName = 'src'
 war.archiveName = 'todos.war'
+war {
+    from 'src'
+    webXml = file('web/WEB-INF/web.xml')
+}
 
 sourceSets {
     main {
@@ -52,6 +57,9 @@ dependencies {
 
     compile 'org.jboss.spec:jboss-javaee-6.0:3.0.3.Final'
 
+    def cargoVersion = '1.4.10'
+    cargo "org.codehaus.cargo:cargo-core-uberjar:${cargoVersion}"
+    cargo "org.codehaus.cargo:cargo-ant:${cargoVersion}"
 }
 idea {
     module {
