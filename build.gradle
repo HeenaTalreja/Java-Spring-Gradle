@@ -2,42 +2,12 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'war'
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath "com.bmuschko:gradle-cargo-plugin:2.0.3"
-    }
-}
-
-apply plugin: "com.bmuschko.cargo"
-
 repositories {
     mavenLocal()
     mavenCentral()
 }
 
-webAppDirName = 'src'
 war.archiveName = 'todos.war'
-war {
-    from 'src'
-    webXml = file('web/WEB-INF/web.xml')
-}
-
-sourceSets {
-    main {
-        java {
-            srcDir 'src/'
-        }
-    }
-
-    test {
-        java {
-            srcDir 'test/'
-        }
-    }
-}
 
 dependencies {
     testCompile 'org.hamcrest:hamcrest-all:1.3'
@@ -57,9 +27,6 @@ dependencies {
 
     compile 'org.jboss.spec:jboss-javaee-6.0:3.0.3.Final'
 
-    def cargoVersion = '1.4.10'
-    cargo "org.codehaus.cargo:cargo-core-uberjar:${cargoVersion}"
-    cargo "org.codehaus.cargo:cargo-ant:${cargoVersion}"
 }
 idea {
     module {
@@ -77,27 +44,6 @@ test {
     }
 }
 
-cargo {
-    containerId = 'jboss71x'
-    port = 8080
-
-    deployable {
-        file = file('build/libs/todos.war')
-        context = 'todos'
-    }
-
-    remote {
-        hostname = 'localhost'
-        username = 'admin'
-        password = 'password'
-    }
-
-    local {
-        homeDir = file("$System.env.JBOSS_HOME")
-        containerProperties { property 'cargo.jboss.configuration', 'standalone-full' }
-    }
-}
-
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
@@ -106,11 +52,3 @@ task deployLocal(type: Copy) {
     from "build/libs/todos.war"
     into "$System.env.JBOSS_HOME/standalone/deployments"
 }
-
-[
-        cargoRunLocal,
-        cargoStartLocal,
-        cargoDeployRemote,
-        cargoRedeployRemote,
-        deployLocal
-].each { it.dependsOn assemble }

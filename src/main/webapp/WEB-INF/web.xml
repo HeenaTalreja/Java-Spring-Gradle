@@ -10,9 +10,10 @@
             org.springframework.web.servlet.DispatcherServlet
         </servlet-class>
         <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring-config.xml</param-value>
+            <param-name>contextAppConfigLocation</param-name>
+            <param-value>classpath*:main/webapp/WEB-INF/spring-servlet.xml</param-value>
         </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
