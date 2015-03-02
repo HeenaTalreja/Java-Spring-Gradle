@@ -1,1 +1,1 @@
-web: sh build/lib/todos
+web:  echo "wee" 

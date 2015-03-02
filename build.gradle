@@ -3,7 +3,6 @@ apply plugin: 'idea'
 apply plugin: 'war'
 
 repositories {
-    mavenLocal()
     mavenCentral()
 }
 
@@ -24,9 +23,7 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-core:2.5.1'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
-
-    compile 'org.jboss.spec:jboss-javaee-6.0:3.0.3.Final'
-
+    compile 'com.github.jsimone:webapp-runner:7.0.57.2'
 }
 idea {
     module {
@@ -48,7 +45,9 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
 
-task deployLocal(type: Copy) {
-    from "build/libs/todos.war"
-    into "$System.env.JBOSS_HOME/standalone/deployments"
+task stage(dependsOn: ['build', 'javaExec'])
+
+task javaExec(type: JavaExec){
+	main = "webapp.runner.launch.Main"
+	classpath = sourceSets.main.runtimeClasspath
 }
