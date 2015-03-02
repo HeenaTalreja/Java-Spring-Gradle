@@ -1,1 +1,1 @@
-web:  echo "wee" 
+web:  ./gradlew javaExec
