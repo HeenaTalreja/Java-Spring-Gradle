@@ -6,6 +6,18 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    runner
+}
+
+//task downloadWebappRunner << {
+//    new File("${buildDir}/build/lib/").mkdirs();
+//    configurations.runner.resolve().each { file ->
+//        inputs.file = file
+//        //Copy the file to the desired location
+//    }
+//}
+
 war.archiveName = 'todos.war'
 
 dependencies {
@@ -24,7 +36,9 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
     compile 'com.github.jsimone:webapp-runner:7.0.57.2'
+    runner 'com.github.jsimone:webapp-runner:7.0.57.2'
 }
+
 idea {
     module {
         sourceDirs += file('src/')
@@ -45,9 +59,15 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
 
-task stage(dependsOn: ['build'])
+task stage(dependsOn: ['copyRunner', 'build'])
 
 task javaExec(type: JavaExec){
 	main = "webapp.runner.launch.Main"
 	classpath = sourceSets.main.runtimeClasspath
 }
+
+task copyRunner(type: Copy){
+   from configurations.runner.resolve()
+    into "${buildDir}/libs/"
+}
+
