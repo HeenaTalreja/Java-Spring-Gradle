@@ -10,15 +10,8 @@ configurations {
     runner
 }
 
-//task downloadWebappRunner << {
-//    new File("${buildDir}/build/lib/").mkdirs();
-//    configurations.runner.resolve().each { file ->
-//        inputs.file = file
-//        //Copy the file to the desired location
-//    }
-//}
-
 war.archiveName = 'todos.war'
+buildDir = 'target'
 
 dependencies {
     testCompile 'org.hamcrest:hamcrest-all:1.3'
@@ -59,15 +52,17 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
 
-task stage(dependsOn: ['copyRunner', 'build'])
+task stage(dependsOn: ['copyRunner'])
 
 task javaExec(type: JavaExec){
 	main = "webapp.runner.launch.Main"
 	classpath = sourceSets.main.runtimeClasspath
 }
 
-task copyRunner(type: Copy){
-   from configurations.runner.resolve()
+task copyRunner(type: Copy, dependsOn: 'build'){
+   from (configurations.runner.resolve()) {
+       include 'webapp-runner-*.jar'
+       rename {'webapp-runner.jar'}
+   }
     into "${buildDir}/libs/"
 }
-
